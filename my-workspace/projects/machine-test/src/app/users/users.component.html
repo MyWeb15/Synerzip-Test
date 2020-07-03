@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+          <h4 class="mt-2 text-center text-muted">List of Posts </h4><h6>(Task 1 & Task 2. Listing all Posts with data filter)</h6>
+          <hr>
+          </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-12">
+             Search Post : <input type="text" [(ngModel)]="term">
+              </div>
+            </div>
+
+<div class="row">
+ <div class="col-md-12">       
+   <table class="table table-striped border border-primary mt-4 ">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">User Id</th>
+        <th scope="col">Title</th>
+        <th scope="col">View Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of posts_list  | filter:term">
+        <td>{{i.id}}</td>
+        <td>{{i.userId}}</td>
+        <td>{{i.title}}</td>
+        <td><a class="btn btn-sm text-white btn-primary" [routerLink]="['/details/' + i.id]">View Details</a></td>
+      </tr>
+     
+    </tbody>
+  </table>
+</div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-12">
+     <h5>Posts Data Returned from Post (Task 4. Create Post)</h5><hr>
+        <p>Id : {{post_data?.id}}</p>
+        <p>User Id : {{post_data?.userId}}</p>
+        <p>Title : {{post_data?.title}}</p>
+        <p>Body : {{post_data?.body}}</p>
+      </div>
+    </div>
+<hr>
+    <div class="row mt-4">
+        <div class="col-md-12">
+         <h5>Posts Data Returned from Put (Task 5. Update Post)</h5><hr>
+            <p>Id : {{put_obj?.id}}</p>
+            <p>User Id : {{put_obj?.userId}}</p>
+            <p>Title : {{put_obj?.title}}</p>
+            <p>Body : {{put_obj?.body}}</p>
+          </div>
+        </div>
+
+</div>
